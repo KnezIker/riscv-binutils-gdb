@@ -1468,8 +1468,8 @@ const struct riscv_opcode riscv_opcodes[] =
 {"pv.packlo.b",         0, INSN_CLASS_XPULP_VECT_SHUFFLEPACK, "d,s,t",        MATCH_V_OP_PACKLO|MATCH_V_OP_B_VV,      MASK_V_OP,      match_opcode,   0},
 
 /* PULP branch */
-{"p.beqimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BEQM1,                            MASK_BEQM1,     match_opcode,   0},
-{"p.bneimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BNEM1,                            MASK_BNEM1,     match_opcode,   0},
+{"p.beqimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BEQM1,                            MASK_BEQM1,     match_opcode,   INSN_CONDBRANCH},
+{"p.bneimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BNEM1,                            MASK_BNEM1,     match_opcode,   INSN_CONDBRANCH},
 
 
 /* PULP elw */
