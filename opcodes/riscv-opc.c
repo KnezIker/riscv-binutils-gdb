@@ -201,6 +201,13 @@ match_srxi_as_c_srxi (const struct riscv_opcode *op, insn_t insn)
 const struct riscv_opcode riscv_opcodes[] =
 {
 /* name,     xlen, isa,   operands, match, mask, match_func, pinfo.  */
+{"cmul",  	0, INSN_CLASS_I,   "s,t",  MATCH_CMUL, MASK_CMUL, match_opcode, 0 },
+{"cget",  	0, INSN_CLASS_I,   "d",  MATCH_CGET, MASK_CGET, match_opcode, 0 },
+{"crst",  	0, INSN_CLASS_I,   "",  MATCH_CRST, MASK_CRST, match_opcode, 0 },
+{"mld",  	0, INSN_CLASS_I,   "s,t",  MATCH_MLD, MASK_MLD, match_opcode, 0 },
+{"mget",  	0, INSN_CLASS_I,   "d",  MATCH_MGET, MASK_MGET, match_opcode, 0 },
+{"mrst",  	0, INSN_CLASS_I,   "",  MATCH_MRST, MASK_MRST, match_opcode, 0 },
+{"mdim",  	0, INSN_CLASS_I,   "s",  MATCH_MDIM, MASK_MDIM, match_opcode, 0 },
 {"unimp",       0, INSN_CLASS_C,   "",  0, 0xffffU,  match_opcode, INSN_ALIAS },
 {"unimp",       0, INSN_CLASS_I,   "",  MATCH_CSRRW | (CSR_CYCLE << OP_SH_CSR), 0xffffffffU,  match_opcode, 0 }, /* csrw cycle, x0 */
 {"ebreak",      0, INSN_CLASS_C,   "",  MATCH_C_EBREAK, MASK_C_EBREAK, match_opcode, INSN_ALIAS },
@@ -1468,8 +1475,8 @@ const struct riscv_opcode riscv_opcodes[] =
 {"pv.packlo.b",         0, INSN_CLASS_XPULP_VECT_SHUFFLEPACK, "d,s,t",        MATCH_V_OP_PACKLO|MATCH_V_OP_B_VV,      MASK_V_OP,      match_opcode,   0},
 
 /* PULP branch */
-{"p.beqimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BEQM1,                            MASK_BEQM1,     match_opcode,   INSN_CONDBRANCH},
-{"p.bneimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BNEM1,                            MASK_BNEM1,     match_opcode,   INSN_CONDBRANCH},
+{"p.beqimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BEQM1,                            MASK_BEQM1,     match_opcode,   0},
+{"p.bneimm",            0, INSN_CLASS_XPULP_BR,  "s,bI,p",      MATCH_BNEM1,                            MASK_BNEM1,     match_opcode,   0},
 
 
 /* PULP elw */
